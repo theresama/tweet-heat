@@ -18,25 +18,27 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
-var subject = 'Superbowl';
+var text = "Superbowl";
+//********
 
-client.stream('statuses/filter', {track: subject}, function(stream) {
-  stream.on('data', function(tweet) {
-    console.log(subject + ': ' + tweet.text);
-    io.sockets.emit('new tweet', tweet.coordinates);
-    io.on('connection', function(socket){
-       socket.on('new subject', function(text){
-         console.log(text);
-         subject = text;
+io.on('connection', function(socket) {
+  socket.on('new subject', function(text) {
+    client.stream('statuses/filter', {track: text}, function(stream) {
+      stream.on('data', function(tweet) {
+        console.log(subject + ': ' + tweet.text);
+        io.sockets.emit('new tweet', tweet.coordinates);
       });
-    });
-  });
 
-  stream.on('error', function(error) {
-    console.log(error);
-  });
+      stream.on('error', function(error) {
+       console.log(error);
+      });
+      
+     });
+   });
 });
 
+
+//***************
 
 http.listen(8080, function(){
   console.log('listening on *:8080');
