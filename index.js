@@ -7,12 +7,16 @@ var path = require('path');
 // Set up Twitter
 var Twitter = require('twitter');
 
-var client = new Twitter({
+
+
+twitterCreds = {
   consumer_key: '9tJIrpsuuNGRYlGMpdBmfviau',
   consumer_secret: '4yWuUdJmhWTU0tPKcTI9DgbLSb2WMtfOKkzuXff2YI62UNLBgh',
   access_token_key: '1646397260-TXHpIMv1IKDAJ4auiCHHCbDsJaYa33Q8mKIHN14',
   access_token_secret: 'mL2XkXjqiWgvqFuhWeNmcX7Q3uqijKPhzI4LhaCQiF4U7'
-});
+};
+
+var client = new Twitter(twitterCreds);
 
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
@@ -35,6 +39,12 @@ io.on('connection', function(socket) {
       
      });
    });
+
+  socket.on('close stream', function(text) {
+    console.log("close");
+    stream.destroy();
+    stream = null;
+  });
 });
 
 

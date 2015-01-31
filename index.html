@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-
-    <link rel="stylesheet" type="text/css" href="/front/maps.css">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:800italic,400' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
@@ -22,11 +20,12 @@
       var socket = io();
 
       $('#search').on('click', function(e) {
-        console.log("clicked");
-        console.log($('#topic').val());
         e.preventDefault();
         socket.emit('new subject', $('#topic').val());
-        console.log($('#topic').val());
+      });
+
+      $("#back-top").on('click', function(){
+        socket.emit('close stream', "true");
       });
 
       socket.on('new tweet', function(msg){
@@ -47,6 +46,7 @@
           }, 400, "swing");
           $("#load-overlay").delay(500).fadeToggle(900, "swing");
           $("#back-top").toggle("800");
+          google.maps.event.trigger(map, 'resize');
           return false;
       }); 
 
