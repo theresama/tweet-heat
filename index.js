@@ -20,7 +20,7 @@ app.get('/', function(req, res){
 
 
 
-client.stream('statuses/filter', {track: 'Superbowl'}, function(stream) {
+client.stream('statuses/filter', {track: '#HappyBirthdayHarryStyles'}, function(stream) {
   stream.on('data', function(tweet) {
     console.log(tweet.coordinates);
     io.sockets.emit('new tweet', tweet.coordinates);

@@ -1,7 +1,6 @@
-# chat-example
+# tweet-heat
 
-This is the source code for a very simple chat example used for 
-the [Getting Started](http://socket.io/get-started/chat/) guide 
-of the Socket.IO website.
+heatmap analysis of events happening through live tweets
+[see here](http://www.tweetheat.me) 
 
-Please refer to it to learn how to run this application.
+made @ U of T hacks 2015
