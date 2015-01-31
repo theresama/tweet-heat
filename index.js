@@ -8,10 +8,10 @@ var path = require('path');
 var Twitter = require('twitter');
 
 var client = new Twitter({
-  consumer_key: 'h5KqsbOHAuUU9UNCvqMIRBmbm',
-  consumer_secret: 'eTyQqDKMt9yM8gpDmX3T16TFzkSmPrLqv6TczmefCLa8fn4CYM',
-  access_token_key: '2707849772-yd2FL9C0mUNufGi2saevY5FE9eh8EbQRYJ13O7O',
-  access_token_secret: 'atpFPurfZtUEfJjsa0wEudDVnqYiiQJ5F9LKFC38mEBGg'
+  consumer_key: '9tJIrpsuuNGRYlGMpdBmfviau',
+  consumer_secret: '4yWuUdJmhWTU0tPKcTI9DgbLSb2WMtfOKkzuXff2YI62UNLBgh',
+  access_token_key: '1646397260-TXHpIMv1IKDAJ4auiCHHCbDsJaYa33Q8mKIHN14',
+  access_token_secret: 'mL2XkXjqiWgvqFuhWeNmcX7Q3uqijKPhzI4LhaCQiF4U7'
 });
 
 app.get('/', function(req, res){
@@ -22,8 +22,8 @@ app.get('/', function(req, res){
 
 client.stream('statuses/filter', {track: 'Superbowl'}, function(stream) {
   stream.on('data', function(tweet) {
-    console.log(tweet.text);
-    io.sockets.emit('new tweet', tweet.text);
+    console.log(tweet.coordinates);
+    io.sockets.emit('new tweet', tweet.coordinates);
     //io.on('connection', function(socket){
     //socket.on('new tweet', function(text){
     //  io.emit('new tweet', tweet.text);
