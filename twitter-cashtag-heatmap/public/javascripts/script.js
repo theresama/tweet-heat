@@ -24,28 +24,34 @@ $(function() {
         return false;
     });  
 
+    function loadLocationData(array){
+        var data = [];
+        for (var i in array){
+            console.log(array[i][0], array[i][1]);
+            data.push(new google.maps.LatLng(array[i][0], array[i][1]));
+        }
+
+        return data;
+    }
+
+    
+
     function initialize() {
 
-      var heatmapData = [
-        new google.maps.LatLng(37.782, -122.447),
-        new google.maps.LatLng(37.782, -122.445),
-        new google.maps.LatLng(37.782, -122.443),
-        new google.maps.LatLng(37.782, -122.441),
-        new google.maps.LatLng(37.782, -122.439),
-        new google.maps.LatLng(37.782, -122.437),
-        new google.maps.LatLng(37.782, -122.435),
-        new google.maps.LatLng(37.785, -122.447),
-        new google.maps.LatLng(37.785, -122.445),
-        new google.maps.LatLng(37.785, -122.443),
-        new google.maps.LatLng(37.785, -122.441),
-        new google.maps.LatLng(37.785, -122.439),
-        new google.maps.LatLng(37.785, -122.437),
-        new google.maps.LatLng(37.785, -122.435)
-      ];
+      var heatmapData = loadLocationData([[37.782, -122.447], 
+        [37.782, -122.445], 
+        [37.782, -122.443], 
+        [37.782, -122.441], 
+        [37.782, -122.439],
+        [37.785, -122.447], 
+        [37.785, -122.443], 
+        [37.785, -122.441], 
+        [37.785, -122.437]
+        ]);
 
       var mapOptions = {
-        center: { lat: 0, lng: 0},
-        zoom: 3,
+        center: { lat: 37.782, lng: -122.447},
+        zoom: 4,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
 
