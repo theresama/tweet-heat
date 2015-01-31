@@ -18,17 +18,18 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
+var subject = 'Superbowl';
 
-
-client.stream('statuses/filter', {track: 'Superbowl'}, function(stream) {
+client.stream('statuses/filter', {track: subject}, function(stream) {
   stream.on('data', function(tweet) {
-    console.log(tweet.coordinates);
+    console.log(subject + ': ' + tweet.text);
     io.sockets.emit('new tweet', tweet.coordinates);
-    //io.on('connection', function(socket){
-    //socket.on('new tweet', function(text){
-    //  io.emit('new tweet', tweet.text);
-    //});
-    //});
+    io.on('connection', function(socket){
+       socket.on('new subject', function(text){
+         console.log(text);
+         subject = text;
+      });
+    });
   });
 
   stream.on('error', function(error) {
