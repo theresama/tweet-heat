@@ -20,11 +20,23 @@
       var pointArray = new google.maps.MVCArray(tweet_locations);
 
       var socket = io();
-      $('form').submit(function(){
-        socket.emit('chat message', $('#m').val());
-        $('#m').val('');
+
+      $('#search').on('click', function(e){
+        console.log("clicked");
+        console.log($('#topic').val());
+        e.preventDefault();
+        socket.emit('new subject', $('#topic').val());
+        console.log($('#topic').val());
         return false;
       });
+
+      // $('#search').submit(function(){
+      //   e.preventDefault();
+      //   socket.emit('new subject', $('#topic').val());
+      //   console.log($('#topic').val());
+      //   return false;
+      // });
+
       socket.on('new tweet', function(msg){
         console.log(msg);
         if (msg != null){
@@ -154,7 +166,7 @@
             <h1 class="title med-font">Check the tweet temperature of:</h1>
             <form class="form-inline">
                 <div class="form-group">
-                    <input type="topic" class="form-control" id="topic" placeholder="U of T Hacks">
+                    <input type="topic" class="form-control" id="topic" placeholder="U of T Hacks" val="superbowl">
                     <a href="#load-overlay">
                         <button type="submit" class="btn btn-default" id="search">Check</button>
                     </a>
