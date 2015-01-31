@@ -1,0 +1,84 @@
+html, body, #map-canvas{ 
+	height: 100%; 
+	margin: 0; 
+	padding: 0;
+}
+
+body{
+	overflow-y:hidden;
+}
+
+main{
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	overflow: hidden;
+}
+
+#welcome{
+	height: 100%;
+	width: 50%;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background: white;
+	color: #c41200;
+	text-align: center;
+}
+
+#load-overlay{
+	position: absolute;
+	top: 100%;
+	z-index: 999;
+	height: 100%;
+	width: 100%;
+	background: #c41200;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	opacity:1;
+	text-align: center;
+}
+
+#back-top{
+	position: fixed;
+	bottom: 50px;
+	right: 50px;
+	z-index: 999;
+	display: none;
+	color: #c41200;
+}
+
+
+.title{
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 800;
+	font-style: italic;
+	-webkit-font-smoothing: antialiased;
+}
+
+.big-font{
+	font-size: 7em;
+}
+
+.med-font{
+	font-size: 5em;
+}
+
+.form-inline{
+	margin-top: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
