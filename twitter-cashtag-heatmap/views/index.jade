@@ -1,13 +1,35 @@
 doctype html
 html
     head
-        title Node.js, Twitter Stream, Socket.io
-        link(rel='stylesheet', href='/stylesheets/style.css')
+        title Tweet Heat
+        link(rel='stylesheet', href='/front/bootstrap/css/bootstrap.min.css')
+        link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css')
+        link(rel='stylesheet', href='/front/maps.css')
+        link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans:800italic,400')
         script(src="http://code.jquery.com/jquery-1.9.1.min.js")
         script(src="components/socket.io-client/dist/socket.io.min.js")
-        script(src="/javascripts/script.js")
+        script(src="https://maps.googleapis.com/maps/api/js?libraries=visualization&sensor=true_or_false?key=AIzaSyCFXcDsK3JnVC-IvjEzazLRtJCIbiJZ5FU")       
+        script(src="/javascripts/script.js")      
+
     body
-        h1 This is the body.
-        ul
-                each val, key in data.symbols
-                    li(data-symbol="#{key}")= key
+        main
+            #welcome
+                h1(class='title med-font') Check the tweet temperature of:
+                form(class='form-inline')
+                    #form-group
+                        input(type='topic', class='form-control', id='topic', placeholder='U of T Hacks')
+                        a(href='#load-overlay')
+                            button(type='submit', class='btn btn-default', id='search') Check
+
+                        ul
+                                each val, key in data.symbols
+                                    li(data-symbol="#{key}")= key
+
+            #load-overlay
+                h1(class='title big-font') This conversation's getting heated...
+
+            a(href="#welcome")
+                #back-top
+                    i(class="fa fa-arrow-circle-up fa-5x")
+
+            #map-canvas
