@@ -1,5 +1,6 @@
 $(function() {
     var socket = io.connect(window.location.hostname);
+    
     socket.on('data', function(data) {
         var total = data.total;
         for (var key in data.symbols) {
@@ -23,6 +24,10 @@ $(function() {
         $("#back-top").toggle("800");
         return false;
     });  
+
+    function updateTweets(){
+
+    }
 
     function initialize() {
 

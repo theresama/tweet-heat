@@ -21,7 +21,7 @@ html
                         a(href='#load-overlay')
                             button(type='submit', class='btn btn-default', id='search') Check
             
-            ul
+            ul(id="tweets")
                 each val in data
                     li(data-symbol="#{val}")= val
 
