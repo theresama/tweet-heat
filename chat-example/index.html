@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Tweet Heat</title>
+    <link rel='stylesheet', href='/front/bootstrap/css/bootstrap.min.css'>
+    <link rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+    <link rel='stylesheet', href='/front/maps.css'>
+    <link rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans:800italic,400'>
+    script(src="http://code.jquery.com/jquery-1.9.1.min.js")
+    script(src="components/socket.io-client/dist/socket.io.min.js")
+    script(src="https://maps.googleapis.com/maps/api/js?libraries=visualization&sensor=true_or_false?key=AIzaSyCFXcDsK3JnVC-IvjEzazLRtJCIbiJZ5FU")       
+    script(src="/javascripts/script.js")   
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px Helvetica, Arial; }
+      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages li { padding: 5px 10px; }
+      #messages li:nth-child(odd) { background: #eee; }
+    </style>
+  </head>
+  <body>
+    <ul id="messages"></ul>
+    <form action="">
+      <input id="m" autocomplete="off" /><button>Send</button>
+    </form>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+      var socket = io();
+      $('form').submit(function(){
+        socket.emit('chat message', $('#m').val());
+        $('#m').val('');
+        return false;
+      });
+      socket.on('new tweet', function(msg){
+        $('#messages').append($('<li>').text(msg));
+      });
+    </script>
+  </body>
+</html>

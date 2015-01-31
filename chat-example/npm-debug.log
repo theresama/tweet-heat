@@ -1,0 +1,168 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.35
+4 warn package.json socket-chat-example@0.0.1 No repository field.
+5 verbose readDependencies using package.json deps
+6 verbose install where, deps [ '/Users/celton/Google Drive/Other/chat-example',
+6 verbose install   [ 'express', 'socket.io' ] ]
+7 info preinstall socket-chat-example@0.0.1
+8 verbose readDependencies using package.json deps
+9 verbose cache add [ 'socket.io@1.2.0', null ]
+10 verbose cache add name=undefined spec="socket.io@1.2.0" args=["socket.io@1.2.0",null]
+11 verbose parsed url { protocol: null,
+11 verbose parsed url   slashes: null,
+11 verbose parsed url   auth: null,
+11 verbose parsed url   host: null,
+11 verbose parsed url   port: null,
+11 verbose parsed url   hostname: null,
+11 verbose parsed url   hash: null,
+11 verbose parsed url   search: null,
+11 verbose parsed url   query: null,
+11 verbose parsed url   pathname: 'socket.io@1.2.0',
+11 verbose parsed url   path: 'socket.io@1.2.0',
+11 verbose parsed url   href: 'socket.io@1.2.0' }
+12 verbose cache add [ 'express@4.10.2', null ]
+13 verbose cache add name=undefined spec="express@4.10.2" args=["express@4.10.2",null]
+14 verbose parsed url { protocol: null,
+14 verbose parsed url   slashes: null,
+14 verbose parsed url   auth: null,
+14 verbose parsed url   host: null,
+14 verbose parsed url   port: null,
+14 verbose parsed url   hostname: null,
+14 verbose parsed url   hash: null,
+14 verbose parsed url   search: null,
+14 verbose parsed url   query: null,
+14 verbose parsed url   pathname: 'express@4.10.2',
+14 verbose parsed url   path: 'express@4.10.2',
+14 verbose parsed url   href: 'express@4.10.2' }
+15 verbose cache add name="socket.io" spec="1.2.0" args=["socket.io","1.2.0"]
+16 verbose parsed url { protocol: null,
+16 verbose parsed url   slashes: null,
+16 verbose parsed url   auth: null,
+16 verbose parsed url   host: null,
+16 verbose parsed url   port: null,
+16 verbose parsed url   hostname: null,
+16 verbose parsed url   hash: null,
+16 verbose parsed url   search: null,
+16 verbose parsed url   query: null,
+16 verbose parsed url   pathname: '1.2.0',
+16 verbose parsed url   path: '1.2.0',
+16 verbose parsed url   href: '1.2.0' }
+17 verbose addNamed [ 'socket.io', '1.2.0' ]
+18 verbose addNamed [ '1.2.0', '1.2.0' ]
+19 verbose cache add name="express" spec="4.10.2" args=["express","4.10.2"]
+20 verbose parsed url { protocol: null,
+20 verbose parsed url   slashes: null,
+20 verbose parsed url   auth: null,
+20 verbose parsed url   host: null,
+20 verbose parsed url   port: null,
+20 verbose parsed url   hostname: null,
+20 verbose parsed url   hash: null,
+20 verbose parsed url   search: null,
+20 verbose parsed url   query: null,
+20 verbose parsed url   pathname: '4.10.2',
+20 verbose parsed url   path: '4.10.2',
+20 verbose parsed url   href: '4.10.2' }
+21 verbose addNamed [ 'express', '4.10.2' ]
+22 verbose addNamed [ '4.10.2', '4.10.2' ]
+23 silly lockFile 1b93a138-socket-io-1-2-0 socket.io@1.2.0
+24 verbose lock socket.io@1.2.0 /Users/celton/.npm/1b93a138-socket-io-1-2-0.lock
+25 silly lockFile 787e98b4-express-4-10-2 express@4.10.2
+26 verbose lock express@4.10.2 /Users/celton/.npm/787e98b4-express-4-10-2.lock
+27 verbose request where is /socket.io
+28 verbose request registry https://registry.npmjs.org/
+29 verbose request id 8d181979bc3426d4
+30 verbose url raw /socket.io
+31 verbose url resolving [ 'https://registry.npmjs.org/', './socket.io' ]
+32 verbose url resolved https://registry.npmjs.org/socket.io
+33 verbose request where is https://registry.npmjs.org/socket.io
+34 info trying registry request attempt 1 at 08:35:05
+35 verbose etag "757NUZAL1QNARWY1FM202BBMC"
+36 http GET https://registry.npmjs.org/socket.io
+37 verbose request where is /express
+38 verbose request registry https://registry.npmjs.org/
+39 verbose url raw /express
+40 verbose url resolving [ 'https://registry.npmjs.org/', './express' ]
+41 verbose url resolved https://registry.npmjs.org/express
+42 verbose request where is https://registry.npmjs.org/express
+43 info trying registry request attempt 1 at 08:35:05
+44 verbose etag "4PZ8PH88OU3AKUOEJUKRJR98F"
+45 http GET https://registry.npmjs.org/express
+46 http 304 https://registry.npmjs.org/express
+47 silly registry.get cb [ 304,
+47 silly registry.get   { date: 'Sat, 31 Jan 2015 13:35:06 GMT',
+47 silly registry.get     server: 'Apache',
+47 silly registry.get     via: '1.1 varnish',
+47 silly registry.get     'last-modified': 'Sat, 31 Jan 2015 13:35:06 GMT',
+47 silly registry.get     'cache-control': 'max-age=60',
+47 silly registry.get     etag: '"4PZ8PH88OU3AKUOEJUKRJR98F"',
+47 silly registry.get     age: '8',
+47 silly registry.get     'x-served-by': 'cache-atl6224-ATL',
+47 silly registry.get     'x-cache': 'HIT',
+47 silly registry.get     'x-cache-hits': '1',
+47 silly registry.get     'x-timer': 'S1422711306.006672,VS0,VE3',
+47 silly registry.get     vary: 'Accept',
+47 silly registry.get     'content-length': '0',
+47 silly registry.get     'keep-alive': 'timeout=10, max=50',
+47 silly registry.get     connection: 'Keep-Alive' } ]
+48 verbose etag https://registry.npmjs.org/express from cache
+49 silly lockFile d0bb09e8-s-org-express-express-4-10-2-tgz https://registry.npmjs.org/express/-/express-4.10.2.tgz
+50 verbose lock https://registry.npmjs.org/express/-/express-4.10.2.tgz /Users/celton/.npm/d0bb09e8-s-org-express-express-4-10-2-tgz.lock
+51 verbose addRemoteTarball [ 'https://registry.npmjs.org/express/-/express-4.10.2.tgz',
+51 verbose addRemoteTarball   'df06dde94d968932829d440a2004c5efe64495b0' ]
+52 info retry fetch attempt 1 at 08:35:06
+53 verbose fetch to= /var/folders/kk/d89v316n4fn337yswn6_dzxw0000gn/T/npm-2925-QJt6Rzax/registry.npmjs.org/express/-/express-4.10.2.tgz
+54 http GET https://registry.npmjs.org/express/-/express-4.10.2.tgz
+55 http 304 https://registry.npmjs.org/socket.io
+56 silly registry.get cb [ 304,
+56 silly registry.get   { date: 'Sat, 31 Jan 2015 13:35:06 GMT',
+56 silly registry.get     server: 'Apache',
+56 silly registry.get     via: '1.1 varnish',
+56 silly registry.get     'last-modified': 'Sat, 31 Jan 2015 13:35:06 GMT',
+56 silly registry.get     'cache-control': 'max-age=60',
+56 silly registry.get     etag: '"757NUZAL1QNARWY1FM202BBMC"',
+56 silly registry.get     age: '0',
+56 silly registry.get     'x-served-by': 'cache-atl6229-ATL',
+56 silly registry.get     'x-cache': 'HIT',
+56 silly registry.get     'x-cache-hits': '1',
+56 silly registry.get     'x-timer': 'S1422711306.005438,VS0,VE113',
+56 silly registry.get     vary: 'Accept',
+56 silly registry.get     'content-length': '0',
+56 silly registry.get     'keep-alive': 'timeout=10, max=50',
+56 silly registry.get     connection: 'Keep-Alive' } ]
+57 verbose etag https://registry.npmjs.org/socket.io from cache
+58 silly lockFile e37968a4-rg-socket-io-socket-io-1-2-0-tgz https://registry.npmjs.org/socket.io/-/socket.io-1.2.0.tgz
+59 verbose lock https://registry.npmjs.org/socket.io/-/socket.io-1.2.0.tgz /Users/celton/.npm/e37968a4-rg-socket-io-socket-io-1-2-0-tgz.lock
+60 verbose addRemoteTarball [ 'https://registry.npmjs.org/socket.io/-/socket.io-1.2.0.tgz',
+60 verbose addRemoteTarball   '02f00ffc24626294f46924d4c25ce35a9b940789' ]
+61 info retry fetch attempt 1 at 08:35:06
+62 verbose fetch to= /var/folders/kk/d89v316n4fn337yswn6_dzxw0000gn/T/npm-2925-QJt6Rzax/registry.npmjs.org/socket.io/-/socket.io-1.2.0.tgz
+63 http GET https://registry.npmjs.org/socket.io/-/socket.io-1.2.0.tgz
+64 http 200 https://registry.npmjs.org/socket.io/-/socket.io-1.2.0.tgz
+65 silly lockFile e37968a4-rg-socket-io-socket-io-1-2-0-tgz https://registry.npmjs.org/socket.io/-/socket.io-1.2.0.tgz
+66 silly lockFile e37968a4-rg-socket-io-socket-io-1-2-0-tgz https://registry.npmjs.org/socket.io/-/socket.io-1.2.0.tgz
+67 silly lockFile 1b93a138-socket-io-1-2-0 socket.io@1.2.0
+68 silly lockFile 1b93a138-socket-io-1-2-0 socket.io@1.2.0
+69 http 200 https://registry.npmjs.org/express/-/express-4.10.2.tgz
+70 silly lockFile d0bb09e8-s-org-express-express-4-10-2-tgz https://registry.npmjs.org/express/-/express-4.10.2.tgz
+71 silly lockFile d0bb09e8-s-org-express-express-4-10-2-tgz https://registry.npmjs.org/express/-/express-4.10.2.tgz
+72 silly lockFile 787e98b4-express-4-10-2 express@4.10.2
+73 silly lockFile 787e98b4-express-4-10-2 express@4.10.2
+74 error Error: EACCES, mkdir '/Users/celton/.npm/socket.io/1.2.0'
+74 error  { [Error: EACCES, mkdir '/Users/celton/.npm/socket.io/1.2.0']
+74 error   errno: 3,
+74 error   code: 'EACCES',
+74 error   path: '/Users/celton/.npm/socket.io/1.2.0',
+74 error   parent: 'socket-chat-example' }
+75 error Please try running this command again as root/Administrator.
+76 error System Darwin 13.4.0
+77 error command "node" "/usr/local/bin/npm" "install"
+78 error cwd /Users/celton/Google Drive/Other/chat-example
+79 error node -v v0.10.35
+80 error npm -v 1.4.28
+81 error path /Users/celton/.npm/socket.io/1.2.0
+82 error code EACCES
+83 error errno 3
+84 error stack Error: EACCES, mkdir '/Users/celton/.npm/socket.io/1.2.0'
+85 verbose exit [ 3, true ]
