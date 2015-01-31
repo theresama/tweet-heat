@@ -1,0 +1,25 @@
+{
+  "name": "browser-resolve",
+  "version": "1.6.0",
+  "description": "resolve which handles browser field support in package.json",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter list test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/shtylman/node-browser-resolve.git"
+  },
+  "keywords": [
+    "resolve",
+    "browser"
+  ],
+  "author": "Roman Shtylman <shtylman@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "resolve": "1.0.0"
+  },
+  "devDependencies": {
+    "mocha": "1.14.0"
+  }
+}

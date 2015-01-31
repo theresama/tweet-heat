@@ -1,0 +1,13 @@
+doctype html
+html
+    head
+        title Node.js, Twitter Stream, Socket.io
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        script(src="http://code.jquery.com/jquery-1.9.1.min.js")
+        script(src="components/socket.io-client/dist/socket.io.min.js")
+        script(src="/javascripts/script.js")
+    body
+        h1 This is the body.
+        ul
+                each val, key in data.symbols
+                    li(data-symbol="#{key}")= key

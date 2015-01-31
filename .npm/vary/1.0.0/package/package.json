@@ -1,0 +1,27 @@
+{
+  "name": "vary",
+  "description": "Manipulate the HTTP Vary header",
+  "version": "1.0.0",
+  "author": "Douglas Christopher Wilson <doug@somethingdoug.com>",
+  "license": "MIT",
+  "keywords": [
+    "http",
+    "res",
+    "vary"
+  ],
+  "repository": "jshttp/vary",
+  "devDependencies": {
+    "istanbul": "0.3.0",
+    "mocha": "~1.21.4",
+    "should": "~4.0.4",
+    "supertest": "~0.13.0"
+  },
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec --bail --check-leaks test/",
+    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks test/",
+    "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter spec --check-leaks test/"
+  }
+}

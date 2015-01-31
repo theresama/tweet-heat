@@ -1,0 +1,25 @@
+{
+  "author": "Jamison Dance <jergason@gmail.com> (http://jamisondance.com/)",
+  "name": "recursive-readdir",
+  "description": "Get an array of all files in a directory and subdirectories.",
+  "version": "0.0.2",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jergason/recursive-readdir.git"
+  },
+  "main": "./index.js",
+  "scripts": {
+    "test": "mocha test/"
+  },
+  "keywords": [
+    "directory",
+    "lister"
+  ],
+  "engines": {
+    "node": ">=0.6.6"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "~1.14.0"
+  }
+}
