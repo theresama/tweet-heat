@@ -42,8 +42,6 @@ io.on('connection', function(socket) {
 
   socket.on('close stream', function(text) {
     console.log("close");
-    stream.destroy();
-    stream = null;
   });
 });
 
