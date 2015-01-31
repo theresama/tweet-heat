@@ -25,17 +25,30 @@ io.on('connection', function(socket) {
   socket.on('new subject', function(text) {
     client.stream('statuses/filter', {track: text}, function(stream) {
       stream.on('data', function(tweet) {
-        console.log(subject + ': ' + tweet.text);
+        console.log(text + ': ' + tweet.coordinates);
         io.sockets.emit('new tweet', tweet.coordinates);
       });
 
       stream.on('error', function(error) {
-       console.log(error);
+       console.log("error");
       });
       
      });
    });
 });
+
+
+
+// client.stream('statuses/filter', {track: text}, function(stream) {
+//   stream.on('data', function(tweet) {
+//     console.log(tweet.coordinates);
+//     io.sockets.emit('new tweet', tweet.coordinates);
+//   });
+
+//   stream.on('error', function(error) {
+//     console.log(error);
+//   });
+// });
 
 
 //***************
