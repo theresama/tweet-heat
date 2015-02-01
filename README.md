@@ -1,6 +1,6 @@
 #tweet-heat
 
-A Google Heatmap visualization of topic tweets from the Twitter live stream.
+A Google Heatmap visualization of topic tweets from the Twitter live stream using the Twit (https://github.com/ttezel/twit) API client for Node.js
 [see here](http://www.tweetheat.me)
 
 ####Setup
@@ -22,6 +22,5 @@ var T = new Twit({
 node index.js
 view http://localhost:8080
 ```
-
 
 Made @ U of T hacks 2015 by [Celton McGrath](//github.com/celtonmcgrath) & Theresa Ma
