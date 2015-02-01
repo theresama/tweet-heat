@@ -8,10 +8,10 @@ var path = require('path');
 var Twit = require('twit');
 
 twitterCreds = {
-  consumer_key: '9tJIrpsuuNGRYlGMpdBmfviau',
-  consumer_secret: '4yWuUdJmhWTU0tPKcTI9DgbLSb2WMtfOKkzuXff2YI62UNLBgh',
-  access_token: '1646397260-TXHpIMv1IKDAJ4auiCHHCbDsJaYa33Q8mKIHN14',
-  access_token_secret: 'mL2XkXjqiWgvqFuhWeNmcX7Q3uqijKPhzI4LhaCQiF4U7'
+  consumer_key: 'CNyhZZho1PymnVISJOXlZ50wi',
+  consumer_secret: 'lG4OFI4AI8vHJ51bQIqIrqPiTJRMGL18p7S6n007sUVtAGMOCl',
+  access_token: '1646397260-hw1D3OrJGw9whZKDnqu1QZXpcLExA1Wr7N7kx73',
+  access_token_secret: 'a71A2i4yZmrGnLE7fJyzCc6FWeL8mx5rMC2sP51AgB0h0'
 };
 
 var T = new Twit(twitterCreds);
