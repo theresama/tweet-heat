@@ -16,52 +16,55 @@
       var socket = io();
 
       var tweet_locations = [];
-      var pointArray = new google.maps.MVCArray(tweet_locations);
-
-      var mapOptions = {
-        center: { lat: 0, lng: 0},
-        zoom: 3,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      };
-
-      var map = new google.maps.Map(document.getElementById('map-canvas'),
-          mapOptions);
-
-      var heatmap = new google.maps.visualization.HeatmapLayer({
-        data: pointArray
-      });
-
-      heatmap.setMap(map);
-
-      var gradient = [
-          'rgba(0, 255, 255, 0)',
-          'rgba(0, 255, 255, 1)',
-          'rgba(0, 191, 255, 1)',
-          'rgba(0, 127, 255, 1)',
-          'rgba(0, 63, 255, 1)',
-          'rgba(0, 0, 255, 1)',
-          'rgba(0, 0, 223, 1)',
-          'rgba(0, 0, 191, 1)',
-          'rgba(0, 0, 159, 1)',
-          'rgba(0, 0, 127, 1)',
-          'rgba(63, 0, 91, 1)',
-          'rgba(127, 0, 63, 1)',
-          'rgba(191, 0, 31, 1)',
-          'rgba(255, 0, 0, 1)' 
-        ]
-      heatmap.set('gradient', heatmap.get('gradient') ? null : gradient);
-
-      heatmap.set('radius', heatmap.get('radius') ? null : 20);
-      
-      google.maps.event.addDomListener(window, 'load', initialize);
+      var pointArray = new google.maps.MVCArray(tweet_locations);;
+      var map;
+      var heatmap;
 
       function initialize() {
+        tweet_locations = [];
+        pointArray = new google.maps.MVCArray(tweet_locations);
+
+        var mapOptions = {
+          center: { lat: 0, lng: 0},
+          zoom: 3,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+
+        heatmap = new google.maps.visualization.HeatmapLayer({
+          data: pointArray
+        });
+
+        heatmap.setMap(map);
+
+        var gradient = [
+            'rgba(0, 255, 255, 0)',
+            'rgba(0, 255, 255, 1)',
+            'rgba(0, 191, 255, 1)',
+            'rgba(0, 127, 255, 1)',
+            'rgba(0, 63, 255, 1)',
+            'rgba(0, 0, 255, 1)',
+            'rgba(0, 0, 223, 1)',
+            'rgba(0, 0, 191, 1)',
+            'rgba(0, 0, 159, 1)',
+            'rgba(0, 0, 127, 1)',
+            'rgba(63, 0, 91, 1)',
+            'rgba(127, 0, 63, 1)',
+            'rgba(191, 0, 31, 1)',
+            'rgba(255, 0, 0, 1)' 
+          ]
+        heatmap.set('gradient', heatmap.get('gradient') ? null : gradient);
+
+        heatmap.set('radius', heatmap.get('radius') ? null : 20); 
         
       }
+      google.maps.event.addDomListener(window, 'load', initialize);
 
       $('#search').on('click', function(e) {
         e.preventDefault();
-        socket.emit('new subject', $('#topic').val());
+        socket.emit('new subject', $('#topic').val());       
       });
 
       socket.on('new tweet', function(msg){
@@ -79,6 +82,11 @@
           $("#back-top").toggle("500");
           return false;
       }); 
+
+      $("#back-top").on('click', function(){
+        console.log("back");
+        initialize();
+      });
 
     })
     </script>
