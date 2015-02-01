@@ -21,10 +21,11 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
-var text = "UofTHacks";
+var subject = "UofTHacks";
 
 io.on('connection', function(socket) {
   socket.on('new subject', function(text) {
+    subject = text;
     stream.stop();
     stream = T.stream('statuses/filter', {track: text})
     stream.on('tweet', function (tweet) {
@@ -33,13 +34,22 @@ io.on('connection', function(socket) {
     }); 
 
     stream.on('error', function(error) {
-     console.log(error);
+      console.log(error);
     });
       
    });
 
-  socket.on('new boundary', function(newNe, newSw) {
-    
+  socket.on('new boundary', function(boundaryArray) {
+    stream.stop();
+    stream = T.stream('statuses/filter', {track: subject, locations: boundaryArray})
+    stream.on('tweet', function (tweet) {
+      console.log(text + " : " + tweet.text);
+      io.sockets.emit('new tweet', tweet.coordinates);
+    }); 
+
+    stream.on('error', function(error) {
+      console.log(error);
+    });
   });
 
 });
