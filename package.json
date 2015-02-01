@@ -1,7 +1,7 @@
 {
-  "name": "socket-chat-example",
+  "name": "Tweet-Heat",
   "version": "0.0.1",
-  "description": "my first socket.io app",
+  "description": "Heatmap tweet visualization",
   "dependencies": {
     "body-parser": "*",
     "express": "4.10.2",

@@ -1,6 +1,6 @@
-# tweet-heat
+#tweet-heat
 
-heatmap analysis of events happening through live tweets
-[see here](http://www.tweetheat.me) 
+Google Heatmap visualization of Twitter live-feed.
+[see here](http://www.tweetheat.me until 2016.
 
-made @ U of T hacks 2015
+Made @ U of T hacks 2015 by Celton McGrath & Theresa Ma
