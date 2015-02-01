@@ -17,15 +17,37 @@
       var tweet_locations = [];
       var pointArray = new google.maps.MVCArray(tweet_locations);
 
+      var mapOptions = {
+        center: { lat: 0, lng: 0},
+        zoom: 4,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+
+      var map = new google.maps.Map(document.getElementById('map-canvas'),
+          mapOptions);
+
+      var heatmap = new google.maps.visualization.HeatmapLayer({
+        data: pointArray
+      });
+
+      heatmap.setMap(map);
+      
+      google.maps.event.addDomListener(window, 'load', initialize);
+
+      var bounds;
+      google.maps.event.addListener(map, 'bounds_changed', function() {
+        bounds = [map.getBounds().getSouthWest().lng(), map.getBounds().getSouthWest().lat(),
+          map.getBounds().getNorthEast().lng(), map.getBounds().getNorthEast().lat()];
+      });
+
+
+
       var socket = io();
 
       $('#search').on('click', function(e) {
         e.preventDefault();
         socket.emit('new subject', $('#topic').val());
-      });
-
-      $("#back-top").on('click', function(){
-        socket.emit('close stream', "true");
+        socket.emit('new boundary', bounds);
       });
 
       socket.on('new tweet', function(msg){
@@ -46,7 +68,6 @@
           }, 400, "swing");
           $("#load-overlay").delay(500).fadeToggle(900, "swing");
           $("#back-top").toggle("800");
-          google.maps.event.trigger(map, 'resize');
           return false;
       }); 
 
@@ -61,21 +82,11 @@
 
       function initialize() {
 
-        var mapOptions = {
-          center: { lat: 0, lng: 0},
-          zoom: 3,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-
-        var map = new google.maps.Map(document.getElementById('map-canvas'),
-            mapOptions);
-
-        var heatmap = new google.maps.visualization.HeatmapLayer({
-          data: pointArray
-        });
-        heatmap.setMap(map);
+        
+        
       }
-      google.maps.event.addDomListener(window, 'load', initialize);
+
+
 
     })
     </script>
