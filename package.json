@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "description": "my first socket.io app",
   "dependencies": {
+    "body-parser": "*",
     "express": "4.10.2",
     "socket.io": "1.2.0",
-    "twitter": "^1.2.1",
-    "body-parser":"*"
+    "twit": "^1.1.19"
   },
   "repository": {
     "type": "git",
