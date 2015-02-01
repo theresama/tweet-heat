@@ -14,6 +14,8 @@
     <script>
     $(function(){
 
+      var socket = io();
+
       var tweet_locations = [];
       var pointArray = new google.maps.MVCArray(tweet_locations);
 
@@ -34,31 +36,36 @@
       
       google.maps.event.addDomListener(window, 'load', initialize);
 
-      var bounds;
+      var timeout = null;
+
+      var bounds = ['0', '0', '0', '0'];
       google.maps.event.addListener(map, 'bounds_changed', function() {
-        bounds = [map.getBounds().getSouthWest().lng(), map.getBounds().getSouthWest().lat(),
-          map.getBounds().getNorthEast().lng(), map.getBounds().getNorthEast().lat()];
+
+        bounds = [map.getBounds().getSouthWest().lng().toString(), map.getBounds().getSouthWest().lat().toString(), map.getBounds().getNorthEast().lng().toString(), map.getBounds().getNorthEast().lat().toString()];
+
+        if (timeout == null){
+          timeout = window.setTimeout(function() {
+            console.log(bounds);
+            socket.emit('new boundary', bounds);
+            timeout = null;
+          }, 5000);
+        }
+
+        
+        //console.log(bounds);
+        
       });
-
-
-
-      var socket = io();
 
       $('#search').on('click', function(e) {
         e.preventDefault();
         socket.emit('new subject', $('#topic').val());
-        socket.emit('new boundary', bounds);
       });
 
       socket.on('new tweet', function(msg){
-        console.log(msg);
         if (msg.coordinates != null){
           console.log(msg.coordinates[0], msg.coordinates[1]);
           tweet_locations.push(new google.maps.LatLng(msg.coordinates[1], msg.coordinates[0]));
           pointArray.push(new google.maps.LatLng(msg.coordinates[1], msg.coordinates[0]));
-        }
-        else{
-          console.log("null");
         }
       });
 

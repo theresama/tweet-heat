@@ -27,7 +27,7 @@ io.on('connection', function(socket) {
   socket.on('new subject', function(text) {
     subject = text;
     stream.stop();
-    stream = T.stream('statuses/filter', {track: text})
+    stream = T.stream('statuses/filter', {track: text, locations: ['-122.75','36.8','-121.75','37.8']});
     stream.on('tweet', function (tweet) {
       console.log(text + " : " + tweet.text);
       io.sockets.emit('new tweet', tweet.coordinates);
@@ -40,10 +40,12 @@ io.on('connection', function(socket) {
    });
 
   socket.on('new boundary', function(boundaryArray) {
+    console.log("boundary");
     stream.stop();
-    stream = T.stream('statuses/filter', {track: subject, locations: boundaryArray})
+    console.log(boundaryArray);
+    stream = T.stream('statuses/filter', {track: subject, locations: boundaryArray});
     stream.on('tweet', function (tweet) {
-      console.log(text + " : " + tweet.text);
+      console.log(subject + " : " + tweet.text);
       io.sockets.emit('new tweet', tweet.coordinates);
     }); 
 
