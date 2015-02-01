@@ -38,24 +38,6 @@
 
       var timeout = null;
 
-      var bounds = ['0', '0', '0', '0'];
-      google.maps.event.addListener(map, 'bounds_changed', function() {
-
-        bounds = [map.getBounds().getSouthWest().lng().toString(), map.getBounds().getSouthWest().lat().toString(), map.getBounds().getNorthEast().lng().toString(), map.getBounds().getNorthEast().lat().toString()];
-
-        if (timeout == null){
-          timeout = window.setTimeout(function() {
-            console.log(bounds);
-            socket.emit('new boundary', bounds);
-            timeout = null;
-          }, 5000);
-        }
-
-        
-        //console.log(bounds);
-        
-      });
-
       $('#search').on('click', function(e) {
         e.preventDefault();
         socket.emit('new subject', $('#topic').val());
